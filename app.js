@@ -18,12 +18,10 @@ addButton.addEventListener('click', () => {
   } else {
     createItems(newTaskList, dateTaskList)
   }
-  
 })
 function createItems(newTask, newDate) {
   itemsArray.push({task: newTask, date: newDate});
   localStorage.setItem('items', JSON.stringify(itemsArray));
-  location.reload();
 }
 function displayItems() {
   if (itemsArray.length == 0) {
@@ -135,7 +133,8 @@ function completeItem(i) {
   localStorage.setItem('history', JSON.stringify(historyArray))
   itemsArray.splice(i, 1)
   localStorage.setItem('items', JSON.stringify(itemsArray))
-  location.reload();
+  displayItems();
+  updateTotalList();
 }
 function updateTotalList() {
   let totalList = document.getElementById('totalLists');
@@ -147,6 +146,15 @@ function updateTotalList() {
     }
 }
 window.addEventListener('load', () => {
+  displayItems();
+  updateTotalList();
+  checkAndDeleteHistory();
+    if (historyArray.length >= 16) {
+    historyArray = historyArray.slice(0, -1)
+    localStorage.setItem('history', JSON.stringify(historyArray))
+  }
+})
+window.addEventListener('change', () => {
   displayItems();
   updateTotalList();
   checkAndDeleteHistory();
