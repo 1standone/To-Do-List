@@ -1,7 +1,6 @@
  let itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
 
  let historyArray = localStorage.getItem('history') ? JSON.parse(localStorage.getItem('history')) : [];
- historyArray.reverse()
 
 let dateCompleted = new Date().toString().split(' ')
 dateCompleted = dateCompleted[1] + '-' + dateCompleted[2] + '-' + dateCompleted[3] + '-' + dateCompleted[4]
@@ -75,7 +74,6 @@ function activateEditButton() {
   editBtn.forEach((ed, i) => {
     ed.addEventListener('click', function() {
       let completeBtn = document.querySelectorAll('.complete');
-        
       if (ed.innerHTML == 'Edit') {
         taskInp[i].removeAttribute('readonly');
         dateInp[i].removeAttribute('readonly');
@@ -102,17 +100,28 @@ function activateEditButton() {
   });
 }
 function updateItem(task, date, i) {
+  console.log(date, task)
   itemsArray[i] = {task, date}
   localStorage.setItem('items', JSON.stringify(itemsArray))
-  location.reload()
+  displayItems()
+  updateTotalList()
 }
 function activateCompleteButton() {
   let completeBtn = document.querySelectorAll('.complete');
   completeBtn.forEach((cmpl, i) => {
     cmpl.addEventListener('click', () => {
       completeItem(i)
+      checkHistoryLength()
     })
   })
+}
+function completeItem(i) {
+  historyArray.unshift(Object.assign(itemsArray[i], completeds, timeObject))
+  localStorage.setItem('history', JSON.stringify(historyArray))
+  itemsArray.splice(i, 1)
+  localStorage.setItem('items', JSON.stringify(itemsArray))
+  displayItems();
+  updateTotalList();
 }
 let timeObject = {
   timetoDelete: new Date().getTime() +  864000000//  10 Days
@@ -128,14 +137,6 @@ function checkAndDeleteHistory() {
   }
   localStorage.setItem('history', JSON.stringify(historyArray))
 }
-function completeItem(i) {
-  historyArray.push(Object.assign(itemsArray[i], completeds, timeObject))
-  localStorage.setItem('history', JSON.stringify(historyArray))
-  itemsArray.splice(i, 1)
-  localStorage.setItem('items', JSON.stringify(itemsArray))
-  displayItems();
-  updateTotalList();
-}
 function updateTotalList() {
   let totalList = document.getElementById('totalLists');
 
@@ -149,24 +150,15 @@ window.addEventListener('load', () => {
   displayItems();
   updateTotalList();
   checkAndDeleteHistory();
-    if (historyArray.length >= 16) {
-    historyArray = historyArray.slice(0, -1)
-    localStorage.setItem('history', JSON.stringify(historyArray))
-  }
+
 })
-window.addEventListener('change', () => {
-  displayItems();
-  updateTotalList();
-  checkAndDeleteHistory();
-    if (historyArray.length >= 16) {
-    historyArray = historyArray.slice(0, -1)
-    localStorage.setItem('history', JSON.stringify(historyArray))
-  }
-})
-  setTimeout(function() {
+setTimeout(function() {
   checkAndDeleteHistory();
 }, 864000000); // 10 days
- if (historyArray.length >= 16) {
-    historyArray = historyArray.slice(0, -1)
+function checkHistoryLength() {
+  if (historyArray.length > 16) {
+    historyArray.splice(-1, 1)
     localStorage.setItem('history', JSON.stringify(historyArray))
+    displayItems()
   }
+}
