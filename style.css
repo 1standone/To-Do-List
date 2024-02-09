@@ -82,7 +82,7 @@ span {
   cursor: pointer
 }
 .modal-content {
-	border-radius: 0px;
+	border-radius: 0px 0px 7px 7px;
 }
 .modal-body {
 	height: 50vh
@@ -91,8 +91,9 @@ span {
   justify-content: center;
 }
 .modal-header {
-  background: #D4D4D4;
+  background-color: #333333;
   border-radius: 0px;
+  color: white;
 }
 .centered-history {
   height: 40vh;
@@ -176,4 +177,12 @@ i.fa-clock-rotate-left {
   span {
     font-size: 10px
   }
+}
+.btn-primary {
+  background-color: #262626 !important;
+  color: white;
+  border: none !important;
+}
+.btn-primary:hover {
+  background-color: #4F4F4F !important;
 }
