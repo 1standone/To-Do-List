@@ -12,7 +12,7 @@
   </head>
   <body>
    <aside class="navbar sticky-top navbar-expand-lg bg-body-tertiary bg-dark border-bottom border-body" data-bs-theme="dark">
-    <div class="container-fluid">
+    <div class="container-fluid sticky-top">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -40,10 +40,10 @@
             <span data-bs-toggle='modal' data-bs-target='#staticInfo'><i class="fa-solid fa-circle-info"></i>About</span>
           </div>
           <div class="row mb-3">
-            <input type="text" class="form-control" id="new-task-list" placeholder="Enter new to do" required>
+            <input type="text" class="form-control shadow-none" id="new-task-list" placeholder="Enter new to do" required>
           </div>
           <div class="row mb-3">
-            <input type="date" class="form-control" id="date-task-list" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="MM/DD/YYYY" required>
+            <input type="date" class="form-control shadow-none" id="date-task-list" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="MM/DD/YYYY" required>
           </div>
           <div class="row mb-3">
             <button class="btn btn-primary" type="submit" id="addTask">Add to List</button>
@@ -86,7 +86,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <h1 class="modal-title fs-5" id="staticInfoLabel">About</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="close"></button>
           </div>
           <div class="modal-body">
             To-Do-List App with Javascript, My Helper → <a href="https://www.youtube.com/watch?v=SeKQSQDUMDQ&pp=ygUvaG93IHRvIG1ha2UgdG8gZG8gbGlzdCBpbiAganMgd2l0aCBsb2NhbHN0cm9nYWU%3D">Web Dev Tutorial</a>
@@ -105,7 +105,10 @@
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="staticHistoryLabel">History</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+          <span>
+          <i class="fa-solid fa-circle-info"></i>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="close"></button>
+          </span>
         </div>
         <div class="modal-body">
            <div class="alert alert-dark" role="alert">History is saved for 10 days. After that, history will be deleted permanently.</div>
@@ -128,8 +131,8 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="staticNotificationsLabel">History</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+          <h1 class="modal-title fs-5" id="staticNotificationsLabel">Notifications</h1>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="close"></button>
         </div>
         <div class="modal-body">
           <p>No Notifications...</p>
