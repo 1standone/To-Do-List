@@ -1,4 +1,9 @@
- let itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
+window.addEventListener('DOMContentLoaded, () => ) {
+  const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+  const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+}) 
+
+let itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
 
  let historyArray = localStorage.getItem('history') ? JSON.parse(localStorage.getItem('history')) : [];
 
