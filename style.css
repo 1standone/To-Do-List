@@ -129,10 +129,16 @@ i.fa-clock-rotate-left {
   }
   aside {
   width: 100%;
-}
-.todo-list {
-  width: 100%;
-}
+  }
+  .nav-item {
+    margin-bottom: 3px;
+  }
+  .nav-item.first, .nav-item.second {
+    border-bottom: 1px solid #b5b5b5;
+  }
+  .todo-list {
+    width: 100%;
+  }
   main {
     flex-flow: column nowrap;
     width: 100%;
