@@ -18,10 +18,10 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="nav flex-column">
-        <li class="nav-item">
+        <li class="nav-item first">
           <a class="nav-link link-light link-opacity-75-hover" data-bs-toggle='modal' data-bs-target='#staticHistory'>History</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item second">
           <a class="nav-link link-light link-opacity-75-hover" data-bs-toggle='modal' data-bs-target='#staticNotifications'>Notifications</a>
         </li>
         <li class="nav-item">
@@ -58,26 +58,7 @@
           <span id="totalLists"></span>
         </div>
         <section id="task-lists" class="border">
-          <!-- Example of no remaining tasks card -->
-          <!-- <div class="container-fluid text-center" id="no-remaining-tasks">
-            <div class="row justify-content-center align-items-center">
-              <div class="col-4">
-                <i class="fa-solid fa-list-check"></i>
-                <h4>There are no tasks.</h4>
-              </div>
-            </div>
-          </div> -->
-          <!-- Example of tasks card -->
-         <!--  <div class="list mb-3">
-            <span id="to-do" class="row">
-              <input type="text" readonly value="Makan">
-              <input type="text" value="12/12/2023" readonly>
-            </span>
-            <span id="buttons" class="gx-4">
-              <button class="btn btn-warning">Edit</button>
-              <button class="btn btn-success">Complete</button>
-            </span>
-            </div> -->
+          <!--Task-Lists Belong here-->
         </section>
       </div>
     </main>
@@ -106,13 +87,11 @@
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="staticHistoryLabel">History</h1>
           <span>
-          <i class="fa-solid fa-circle-info"></i>
+          <i class="fa-solid fa-circle-info" data-bs-toggle="tooltip" data-bs-title="History is saved for 10 days. After that, history will be deleted permanently."></i>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="close"></button>
           </span>
         </div>
         <div class="modal-body">
-           <div class="alert alert-dark" role="alert">History is saved for 10 days. After that, history will be deleted permanently.</div>
-          <hr>
           <div class="history"> <!--centered-history-->
             <div class="history-list" id="history-list">
             	<!-- <div class="background-no-history"><i class="fa-solid fa-clock-rotate-left"></i>
