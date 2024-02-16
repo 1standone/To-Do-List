@@ -55,7 +55,7 @@ aside.navbar {
   gap: 10px;
 }
 #task-lists {
-  min-height: 30vh;
+  min-height: 43vh;
   border-radius: 10px;
   padding: 15px;
   position: relative;
@@ -191,4 +191,16 @@ i.fa-clock-rotate-left {
 }
 .btn-primary:hover {
   background-color: #4F4F4F !important;
+}
+.btn-secondary {
+  background-color: #262626;
+}
+.navbar-toggler {
+  box-shadow: none !important;
+}
+.rotate {
+  transform: rotate(90deg);
+}
+.navbar-toggler-icon {
+  transition: all 0.3s ease;
 }
