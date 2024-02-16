@@ -167,3 +167,9 @@ function checkHistoryLength() {
     displayItems()
   }
 }
+let navToggler = document.querySelector('.navbar-toggler-icon ');
+let navTogglerDegree = navToggler.style.transform
+
+navToggler.addEventListener('click', () => {
+  navToggler.classList.toggle('rotate')
+})
