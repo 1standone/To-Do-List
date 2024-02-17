@@ -18,4 +18,4 @@ and 'history' for storing completed tasks</p> <br>
 
 
 By Standone<br>
-ver1.0
+ver1.1
