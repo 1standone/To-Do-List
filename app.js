@@ -1,7 +1,21 @@
 window.addEventListener('DOMContentLoaded', () => {
   const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
   const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
-}) 
+
+  let navToggler = document.querySelector('.navbar-toggler-icon');
+  setTimeout(() => {
+    navToggler.addEventListener('click', () => {
+      if (buttonToggler.ariaExpanded == 'true') {
+        navToggler.classList.add('rotate');
+      } else {
+        navToggler.classList.remove('rotate')
+      }
+        
+    })
+  }, 500)
+})
+let buttonToggler = document.querySelector('.navbar-toggler');
+
 
 let itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
 
@@ -26,6 +40,7 @@ addButton.addEventListener('click', () => {
 function createItems(newTask, newDate) {
   itemsArray.push({task: newTask, date: newDate});
   localStorage.setItem('items', JSON.stringify(itemsArray));
+  displayItems()
 }
 function displayItems() {
   if (itemsArray.length == 0) {
@@ -65,9 +80,15 @@ function displayItems() {
   } else {
     document.querySelector('.history').classList.remove('centered-history')
     for (let i = 0; i < historyArray.length; i++) {
-      historyItems += `<div class="history-items">
-                    <p>${i+1}. Task: ${historyArray[i]['task']}. Date Completed: ${historyArray[i]['timeCompleted']}<p>
-                    </div>`
+      if (i < 9) {
+      historyItems += `<div class="history-items mb-3">
+                          <span class='numberIndex'>0${i+1}.</span> <span class='taskIndex'>Task: ${historyArray[i]['task']}.</span <span class='dateIndex'>Date Completed: ${historyArray[i]['timeCompleted']}</span>
+                          </div>`
+      } else {
+          historyItems += `<div class="history-items mb-2">
+                          <span class='numberIndex'>${i+1}.</span> <span class='taskIndex'>Task: ${historyArray[i]['task']}.</span <span class='dateIndex'>Date Completed: ${historyArray[i]['timeCompleted']}</span>
+                          </div>`
+        }
       }
   }
   document.querySelector('.history-list').innerHTML = historyItems
@@ -167,19 +188,7 @@ function checkHistoryLength() {
     displayItems()
   }
 }
-let navToggler = document.querySelector('.navbar-toggler-icon');
 
-setTimeout(() => {
-  navToggler.addEventListener('click', () => {
-    if (navToggler.style.transform == 'rotate(0deg)') {
-      navToggler.style.transform = 'rotate(90deg)'
-    } else {
-      navToggler.style.transform = 'rotate(0deg)'
-    }
-  })
-}, 500)
-
-let navTabs = document.querySelectorAll('.nav-tabs > li');
 let navTabsLinks = document.querySelectorAll('.nav-tabs > li > a')
 let lastIndexClicked = null 
 
