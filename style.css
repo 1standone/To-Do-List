@@ -4,7 +4,7 @@
 body {
   display: flex;
   margin: auto;
-  min-height: 100vh
+  min-height: 100vh;
 }
 a {
   cursor: pointer
@@ -24,6 +24,7 @@ aside.navbar {
   width: 50%;
   box-shadow: 0px 0px 16px 1px rgba(0,0,0,0.30);
 }
+
 .list-header {
   display: flex;
   justify-content: space-between;
@@ -121,6 +122,36 @@ i.fa-clock-rotate-left {
 .history-items:hover {
   background: #9E9E9E;
 }
+.btn-primary {
+  background-color: #262626 !important;
+  color: white;
+  border: none !important;
+}
+.btn-primary:hover {
+  background-color: #4F4F4F !important;
+}
+.btn-secondary {
+  background-color: #262626;
+}
+.btn-close {
+  box-shadow: none !important
+}
+.navbar-toggler {
+  box-shadow: none !important;
+}
+.rotate {
+  transform: rotate(90deg);
+}
+.navbar-toggler-icon {
+  transition: all 0.3s ease;
+}
+#emptySpace {
+  background-color: #EEEEEE;
+  width: 61vh;
+  box-shadow: 5px 0px 10px 8px rgba(0,0,0,0.30);
+  z-index: -1;
+  border-radius: 3px;
+}
 @media screen and (max-width: 750px) {
   body {
     display: flex;
@@ -183,24 +214,4 @@ i.fa-clock-rotate-left {
   span {
     font-size: 10px
   }
-}
-.btn-primary {
-  background-color: #262626 !important;
-  color: white;
-  border: none !important;
-}
-.btn-primary:hover {
-  background-color: #4F4F4F !important;
-}
-.btn-secondary {
-  background-color: #262626;
-}
-.navbar-toggler {
-  box-shadow: none !important;
-}
-.rotate {
-  transform: rotate(90deg);
-}
-.navbar-toggler-icon {
-  transition: all 0.3s ease;
 }
