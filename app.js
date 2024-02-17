@@ -167,9 +167,58 @@ function checkHistoryLength() {
     displayItems()
   }
 }
-let navToggler = document.querySelector('.navbar-toggler-icon ');
-let navTogglerDegree = navToggler.style.transform
+let navToggler = document.querySelector('.navbar-toggler-icon');
 
-navToggler.addEventListener('click', () => {
-  navToggler.classList.toggle('rotate')
+setTimeout(() => {
+  navToggler.addEventListener('click', () => {
+    if (navToggler.style.transform == 'rotate(0deg)') {
+      navToggler.style.transform = 'rotate(90deg)'
+    } else {
+      navToggler.style.transform = 'rotate(0deg)'
+    }
+  })
+}, 500)
+
+let navTabs = document.querySelectorAll('.nav-tabs > li');
+let navTabsLinks = document.querySelectorAll('.nav-tabs > li > a')
+let lastIndexClicked = null 
+
+
+let containerNotify = document.querySelector('#container-notify');
+let newNotify = document.querySelector('.new-notify > a');
+let readNotify = document.querySelector('.read-notify > a');
+let markNotify = document.querySelector('.mark-notify > a');
+
+let containerText = ''
+
+navTabsLinks.forEach((link, index) => {
+    link.addEventListener('click', (event) => {
+      if (lastIndexClicked !== null) {
+      navTabsLinks[lastIndexClicked].classList.remove('active')
+      
+      }
+      event.target.classList.add('active');
+      lastIndexClicked = index
+      if (navTabsLinks[index].classList.contains('active')) {
+        switch (event.target) {
+          case newNotify:
+            containerText = ''
+            containerText = 'Saat ini tidak ada pesan baru'
+            containerNotify.innerHTML = containerText
+            break;
+          case readNotify:
+            containerText = ''
+            containerText += 'Saat ini tidak ada pesan yang telah dibaca'
+            containerNotify.innerHTML = containerText
+            break;
+          case markNotify:
+            containerText = ''
+            containerText += 'Tidak ada pesan yang ditandai'
+            containerNotify.innerHTML = containerText
+            break;
+          default:
+            console.log('no link clicked')
+        }
+      }
+  })
 })
