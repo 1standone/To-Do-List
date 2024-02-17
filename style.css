@@ -111,13 +111,17 @@ i.fa-clock-rotate-left {
   font-size: 50px;
 }
 .history-items {
-  background: #a8a8a8;
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  background: #4F4F4F;
   padding: 10px;
-  color: black;
+  color: white;
   border-radius: 5px;
 }
 .history-items:nth-child(odd) {
   background: #ffffff;
+  color: black;
 }
 .history-items:hover {
   background: #9E9E9E;
@@ -141,6 +145,7 @@ i.fa-clock-rotate-left {
 }
 .rotate {
   transform: rotate(90deg);
+   transition: all 0.3s ease-in-out;
 }
 .navbar-toggler-icon {
   transition: all 0.3s ease;
